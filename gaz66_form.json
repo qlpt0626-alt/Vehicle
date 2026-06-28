@@ -1,0 +1,155 @@
+{
+  "sections": [
+    {
+      "id": "i_dong_co",
+      "title": "I. ĐỘNG CƠ",
+      "items": [
+        {"tt": "1", "name": "Cánh quạt gió", "quantity": 1},
+        {"tt": "2", "name": "Két nước làm mát", "quantity": 1},
+        {"tt": "3", "name": "Bơm nước", "quantity": 1},
+        {"tt": "4", "name": "Bơm xăng / dầu", "quantity": 1},
+        {"tt": "5", "name": "Bộ chế hòa khí / vòi phun", "quantity": 1},
+        {"tt": "6", "name": "Bánh đà", "quantity": 1},
+        {"tt": "7", "name": "Trục khuỷu & Bánh răng", "quantity": 1},
+        {"tt": "8", "name": "Pít-tông & Thanh truyền", "quantity": 8},
+        {"tt": "9", "name": "Xích cam & Trục cam", "quantity": 1},
+        {"tt": "10", "name": "Xéc-măng dầu & khí", "quantity": 8}
+      ]
+    },
+    {
+      "id": "ii_he_thong_dien",
+      "title": "II. HỆ THỐNG ĐIỆN",
+      "items": [
+        {"tt": "11", "name": "Máy phát điện (Dynamo)", "quantity": 1},
+        {"tt": "12", "name": "Củ đề khởi động (Starter)", "quantity": 1},
+        {"tt": "13", "name": "Ắc quy 12V / 24V", "quantity": 2},
+        {"tt": "14", "name": "Bộ chia điện & Đánh lửa", "quantity": 1},
+        {"tt": "15", "name": "Hệ thống đèn pha trước", "quantity": 2},
+        {"tt": "16", "name": "Bugi đánh lửa", "quantity": 8},
+        {"tt": "17", "name": "Bảng cầu chì điều khiển", "quantity": 1}
+      ]
+    },
+    {
+      "id": "iii_he_thong_lai",
+      "title": "III. HỆ THỐNG LÁI",
+      "items": [
+        {"tt": "18", "name": "Vô lăng lái", "quantity": 1},
+        {"tt": "19", "name": "Trục vít - Ê cu lái", "quantity": 1},
+        {"tt": "20", "name": "Bơm trợ lực lái", "quantity": 1},
+        {"tt": "21", "name": "Thanh kéo lái dọc / ngang", "quantity": 2},
+        {"tt": "22", "name": "Khớp cầu chuyển hướng", "quantity": 4}
+      ]
+    },
+    {
+      "id": "iv_he_thong_phanh",
+      "title": "IV. HỆ THỐNG PHANH",
+      "items": [
+        {"tt": "23", "name": "Tổng bơm phanh chính", "quantity": 1},
+        {"tt": "24", "name": "Bầu trợ lực phanh chân không", "quantity": 2},
+        {"tt": "25", "name": "Cơ cấu má phanh bánh trước", "quantity": 2},
+        {"tt": "26", "name": "Cơ cấu má phanh bánh sau", "quantity": 2},
+        {"tt": "27", "name": "Cơ cấu phanh tay truyền động", "quantity": 1}
+      ]
+    },
+    {
+      "id": "v_hop_so",
+      "title": "V. HỘP SỐ",
+      "items": [
+        {"tt": "28", "name": "Vỏ hộp số chính", "quantity": 1},
+        {"tt": "29", "name": "Bánh răng số 1, 2, 3, 4, lùi", "quantity": 5},
+        {"tt": "30", "name": "Hộp số phụ (Trích công suất)", "quantity": 1},
+        {"tt": "31", "name": "Vòng bi & Phớt chặn dầu", "quantity": 8}
+      ]
+    },
+    {
+      "id": "vi_cardan",
+      "title": "VI. CARDAN",
+      "items": [
+        {"tt": "32", "name": "Trục các-đăng truyền lực trước", "quantity": 1},
+        {"tt": "33", "name": "Trục các-đăng truyền lực sau", "quantity": 1},
+        {"tt": "34", "name": "Ổ bi chữ thập các-đăng", "quantity": 4},
+        {"tt": "35", "name": "Khớp trượt các-đăng", "quantity": 2}
+      ]
+    },
+    {
+      "id": "vii_cau_truoc",
+      "title": "VII. CẦU TRƯỚC",
+      "items": [
+        {"tt": "36", "name": "Vỏ cầu trước rỗng", "quantity": 1},
+        {"tt": "37", "name": "Bộ vi sai cầu trước (Bánh răng quả dứa)", "quantity": 1},
+        {"tt": "38", "name": "Bán trục cầu trước", "quantity": 2},
+        {"tt": "39", "name": "Khớp đồng tốc (Khớp Rzeppa)", "quantity": 2}
+      ]
+    },
+    {
+      "id": "viii_cau_sau",
+      "title": "VIII. CẦU SAU",
+      "items": [
+        {"tt": "40", "name": "Vỏ cầu sau chịu lực", "quantity": 1},
+        {"tt": "41", "name": "Bộ vi sai cầu sau", "quantity": 1},
+        {"tt": "42", "name": "Bán trục truyền động sau trái / phải", "quantity": 2},
+        {"tt": "43", "name": "Vòng bi mo-ay-ơ sau", "quantity": 4}
+      ]
+    },
+    {
+      "id": "ix_he_thong_treo",
+      "title": "IX. HỆ THỐNG TREO",
+      "items": [
+        {"tt": "44", "name": "Nhíp lá bánh trước", "quantity": 2},
+        {"tt": "45", "name": "Nhíp lá bánh sau", "quantity": 2},
+        {"tt": "46", "name": "Giảm chấn thủy lực", "quantity": 4},
+        {"tt": "47", "name": "Đệm cao su & Ống lót nhíp", "quantity": 12}
+      ]
+    },
+    {
+      "id": "x_cabin",
+      "title": "X. CABIN",
+      "items": [
+        {"tt": "48", "name": "Vỏ cabin xe nhôm dập", "quantity": 1},
+        {"tt": "49", "name": "Kính chắn gió trước", "quantity": 1},
+        {"tt": "50", "name": "Cửa cabin trái / phải", "quantity": 2},
+        {"tt": "51", "name": "Gương chiếu hậu", "quantity": 2}
+      ]
+    },
+    {
+      "id": "xi_noi_that",
+      "title": "XI. NỘI THẤT",
+      "items": [
+        {"tt": "52", "name": "Ghế ngồi lái xe & phụ xe", "quantity": 2},
+        {"tt": "53", "name": "Bảng táp-lô & Đồng hồ đo", "quantity": 1},
+        {"tt": "54", "name": "Hệ thống sưởi & Thông gió", "quantity": 1},
+        {"tt": "55", "name": "Vải bạt cabin che trần", "quantity": 1}
+      ]
+    },
+    {
+      "id": "xii_khung_xe",
+      "title": "XII. KHUNG XE",
+      "items": [
+        {"tt": "56", "name": "Xát-xi thép chính (Dầm dọc)", "quantity": 1},
+        {"tt": "57", "name": "Đà ngang nâng đỡ sàn", "quantity": 5},
+        {"tt": "58", "name": "Cản bảo vệ phía trước", "quantity": 1},
+        {"tt": "59", "name": "Móc kéo cứu hộ phía sau", "quantity": 1}
+      ]
+    },
+    {
+      "id": "xiii_thung_xe",
+      "title": "XIII. THÙNG XE",
+      "items": [
+        {"tt": "60", "name": "Khung xương thép thùng chở quân", "quantity": 1},
+        {"tt": "61", "name": "Ván lót bệ sàn thùng gỗ", "quantity": 12},
+        {"tt": "62", "name": "Bạt che thùng dã chiến", "quantity": 1},
+        {"tt": "63", "name": "Ghế băng chứa quân điều động dọc", "quantity": 2}
+      ]
+    },
+    {
+      "id": "xiv_trang_bi_khac",
+      "title": "XIV. TRANG BỊ KHAC",
+      "items": [
+        {"tt": "64", "name": "Xẻng / Rìu công binh dã ngoại", "quantity": 2},
+        {"tt": "65", "name": "Bình cứu hỏa dập lửa mini", "quantity": 1},
+        {"tt": "66", "name": "Lốp xe dự phòng (Sơ-cua)", "quantity": 1},
+        {"tt": "67", "name": "Hệ thống bơm lốp tự động dã chiến", "quantity": 1}
+      ]
+    }
+  ]
+}

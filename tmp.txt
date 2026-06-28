@@ -1,0 +1,10 @@
+src/components/MilitaryInspectionForm.tsx:250:    if (savedData.headerData) {
+src/components/MilitaryInspectionForm.tsx:251:      const hd = savedData.headerData;
+src/components/MilitaryInspectionForm.tsx:379:       headerData: {
+src/components/MilitaryInspectionForm.tsx:483:        const savedData = dps.find((p: any) => p.formData && p.headerData && !p.isDeleted);
+src/components/MilitaryInspectionForm.tsx:1274:              Hệ thống đã tự động định vị được dữ liệu biên bản giao nhận xe <span className="font-extrabold text-amber-400 font-mono">{plateNumber || (recoveredData?.headerData && recoveredData.headerData.plateNumber) || "nhập tay dã chiến"}</span> dã ngoại tự lưu mới nhất. Hãy chọn hành động phù hợp:
+src/components/InspectionTab.tsx:159:    headerData: {},
+src/components/InspectionTab.tsx:170:      headerData: {},
+src/components/InspectionTab.tsx:183:      headerData: {
+src/components/InspectionTab.tsx:205:      headerData: {},
+src/components/InspectionTab.tsx:212:      (currentInspection.headerData && Object.keys(currentInspection.headerData).length > 0) ||

@@ -1,0 +1,6 @@
+{
+  "name": "Quản lý Xe Sửa chữa",
+  "description": "Hệ thống tiếp nhận, lưu trữ thông tin kỹ thuật và tra cứu lịch sử sửa chữa cơ học của các phương tiện trạm sửa chữa kỹ thuật.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

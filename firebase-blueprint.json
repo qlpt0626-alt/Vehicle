@@ -1,0 +1,139 @@
+{
+  "entities": {
+    "Vehicle": {
+      "title": "Vehicle",
+      "description": "Represents a vehicle registered in the repair database",
+      "type": "object",
+      "properties": {
+        "vehicleId": { "type": "string", "description": "Unique identifier of the vehicle, often matching plate number formatted" },
+        "plateNumber": { "type": "string", "description": "License plate number" },
+        "brand": { "type": "string", "description": "Vehicle brand/make" },
+        "vehicleType": { "type": "string", "description": "Vehicle type" },
+        "vehicleGroup": { "type": "string", "description": "Vehicle group category" },
+        "chassisNumber": { "type": "string", "description": "Chassis identifier" },
+        "engineNumber": { "type": "string", "description": "Engine identifier" }
+      },
+      "required": ["vehicleId", "plateNumber", "brand", "vehicleType", "vehicleGroup", "chassisNumber", "engineNumber"]
+    },
+    "RepairHistory": {
+      "title": "Repair History",
+      "description": "Represents a repair and receiving log instance for a vehicle",
+      "type": "object",
+      "properties": {
+        "historyId": { "type": "string", "description": "Unique record identifier" },
+        "vehicleId": { "type": "string", "description": "Associated plates/vehicleId reference" },
+        "reportNumber": { "type": "string", "description": "Report or protocol number" },
+        "receiveDate": { "type": "string", "description": "Receiving date" },
+        "giver": { "type": "string", "description": "Person delivering the vehicle" },
+        "receiver": { "type": "string", "description": "Person receiving the vehicle" },
+        "engineStatus": { "type": "string", "enum": ["Tốt", "Cần kiểm tra", "Cần sửa chữa", "Hỏng"] },
+        "electricalStatus": { "type": "string", "enum": ["Tốt", "Cần kiểm tra", "Cần sửa chữa", "Hỏng"] },
+        "chassisStatus": { "type": "string", "enum": ["Tốt", "Cần kiểm tra", "Cần sửa chữa", "Hỏng"] },
+        "bodyStatus": { "type": "string", "enum": ["Tốt", "Cần kiểm tra", "Cần sửa chữa", "Hỏng"] },
+        "cushionStatus": { "type": "string", "enum": ["Tốt", "Cần kiểm tra", "Cần sửa chữa", "Hỏng"] },
+        "tireBatteryStatus": { "type": "string", "enum": ["Tốt", "Cần kiểm tra", "Cần sửa chữa", "Hỏng"] },
+        "specialEquipmentStatus": { "type": "string", "enum": ["Tốt", "Cần kiểm tra", "Cần sửa chữa", "Hỏng"] },
+        "accessoryStatus": { "type": "string", "enum": ["Tốt", "Cần kiểm tra", "Cần sửa chữa", "Hỏng"] },
+        "paintStatus": { "type": "string", "enum": ["Tốt", "Cần kiểm tra", "Cần sửa chữa", "Hỏng"] },
+        "note": { "type": "string", "description": "General input notes regarding the vehicle's state" },
+        "unitComment": { "type": "string", "description": "Unit or division comments" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "historyId",
+        "vehicleId",
+        "reportNumber",
+        "receiveDate",
+        "giver",
+        "receiver",
+        "engineStatus",
+        "electricalStatus",
+        "chassisStatus",
+        "bodyStatus",
+        "cushionStatus",
+        "tireBatteryStatus",
+        "specialEquipmentStatus",
+        "accessoryStatus",
+        "paintStatus",
+        "note",
+        "unitComment",
+        "createdAt"
+      ]
+    },
+    "FormData": {
+      "title": "Form Data",
+      "description": "Represents dynamic templates form data for specific vehicles",
+      "type": "object",
+      "properties": {
+        "vehicleId": { "type": "string", "description": "Owner vehicle identifier reference" },
+        "templateName": { "type": "string", "description": "Template file or key used" },
+        "formValues": { "type": "object", "description": "Dynamic key-value map of form entries" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "vehicleId",
+        "templateName",
+        "formValues",
+        "createdAt"
+      ]
+    },
+    "VehicleInspectionForm": {
+      "title": "Vehicle Inspection Form",
+      "description": "Represents the military administrative detailed damage and inspection form",
+      "type": "object",
+      "properties": {
+        "vehicleId": { "type": "string", "description": "Associated plates/vehicleId reference" },
+        "plateNumber": { "type": "string", "description": "Vehicle license plate number" },
+        "formData": { "type": "object", "description": "Key-value pair containing military inspection details, actual items quantities, textareas, check boxes and radios" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "vehicleId",
+        "plateNumber",
+        "formData",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "User": {
+      "title": "User",
+      "description": "Represents a user account in the system",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Unique identifier of the user" },
+        "username": { "type": "string", "description": "Unique username used for login" },
+        "fullName": { "type": "string", "description": "Full name of the user" },
+        "rank": { "type": "string", "description": "Military rank" },
+        "unit": { "type": "string", "description": "Military unit/division" },
+        "role": { "type": "string", "enum": ["admin", "technician", "reception", "commander"], "description": "User role permissions" },
+        "isActive": { "type": "boolean", "description": "Account status flag" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "createdBy": { "type": "string", "description": "Creator identifier" }
+      },
+      "required": ["uid", "username", "fullName", "rank", "unit", "role", "isActive", "createdAt", "createdBy"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "Collection of system user accounts and roles"
+    },
+    "vehicles/{vehicleId}": {
+      "schema": "Vehicle",
+      "description": "Collection of repaired vehicle registers"
+    },
+    "repairHistory/{historyId}": {
+      "schema": "RepairHistory",
+      "description": "Collection of vehicle repair history items"
+    },
+    "formData/{vehicleId}": {
+      "schema": "FormData",
+      "description": "Dynamic template data stored per vehicle"
+    },
+    "vehicleInspectionForms/{vehicleId}": {
+      "schema": "VehicleInspectionForm",
+      "description": "Military administrative detailed damage inspection form saved per vehicle"
+    }
+  }
+}

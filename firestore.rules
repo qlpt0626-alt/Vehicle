@@ -1,0 +1,125 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Common helper functions
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // Vehicle validation
+    function isValidVehicle(data) {
+      return data.keys().hasAll(['vehicleId', 'plateNumber'])
+        && data.vehicleId is string && data.vehicleId.size() <= 128
+        && data.plateNumber is string && data.plateNumber.size() <= 64
+        && (!data.keys().contains('brand') || (data.brand is string && data.brand.size() <= 64))
+        && (!data.keys().contains('vehicleName') || (data.vehicleName is string && data.vehicleName.size() <= 128))
+        && (!data.keys().contains('vehicleType') || (data.vehicleType is string && data.vehicleType.size() <= 64))
+        && (!data.keys().contains('vehicleGroup') || (data.vehicleGroup is string && data.vehicleGroup.size() <= 64))
+        && (!data.keys().contains('chassisNumber') || (data.chassisNumber is string && data.chassisNumber.size() <= 64))
+        && (!data.keys().contains('engineNumber') || (data.engineNumber is string && data.engineNumber.size() <= 64))
+        && (!data.keys().contains('unit') || (data.unit is string && data.unit.size() <= 256));
+    }
+
+    // RepairHistory validation
+    function isValidRepairHistory(data) {
+      return data.keys().hasAll([
+        'historyId', 'vehicleId', 'reportNumber', 'receiveDate', 'giver', 'receiver',
+        'engineStatus', 'electricalStatus', 'chassisStatus', 'bodyStatus', 'cushionStatus',
+        'tireBatteryStatus', 'specialEquipmentStatus', 'accessoryStatus', 'paintStatus',
+        'note', 'unitComment', 'createdAt'
+      ])
+        && data.keys().size() == 18
+        && data.historyId is string && data.historyId.size() <= 128
+        && data.vehicleId is string && data.vehicleId.size() <= 128
+        && data.reportNumber is string && data.reportNumber.size() <= 64
+        && data.receiveDate is string && data.receiveDate.size() <= 64
+        && data.giver is string && data.giver.size() <= 128
+        && data.receiver is string && data.receiver.size() <= 128
+        && data.engineStatus is string && data.engineStatus.size() <= 1000
+        && data.electricalStatus is string && data.electricalStatus.size() <= 1000
+        && data.chassisStatus is string && data.chassisStatus.size() <= 1000
+        && data.bodyStatus is string && data.bodyStatus.size() <= 1000
+        && data.cushionStatus is string && data.cushionStatus.size() <= 1000
+        && data.tireBatteryStatus is string && data.tireBatteryStatus.size() <= 1000
+        && data.specialEquipmentStatus is string && data.specialEquipmentStatus.size() <= 1000
+        && data.accessoryStatus is string && data.accessoryStatus.size() <= 1000
+        && data.paintStatus is string && data.paintStatus.size() <= 1000
+        && data.note is string && data.note.size() <= 2000
+        && data.unitComment is string && data.unitComment.size() <= 2000;
+    }
+
+    // Collection: vehicles
+    match /vehicles/{vehicleId} {
+      allow read: if true;
+      allow create: if isValidId(vehicleId) 
+        && isValidVehicle(incoming());
+      allow update: if isValidId(vehicleId) 
+        && isValidVehicle(incoming())
+        && incoming().vehicleId == existing().vehicleId
+        && incoming().plateNumber == existing().plateNumber;
+      allow delete: if isValidId(vehicleId);
+    }
+
+    // Collection: repairHistory
+    match /repairHistory/{historyId} {
+      allow read: if true;
+      allow create: if isValidId(historyId) 
+        && isValidRepairHistory(incoming())
+        && incoming().createdAt == request.time;
+      allow update: if isValidId(historyId)
+        && isValidRepairHistory(incoming())
+        && incoming().historyId == existing().historyId
+        && incoming().vehicleId == existing().vehicleId
+        && incoming().createdAt == existing().createdAt;
+      allow delete: if isValidId(historyId);
+    }
+
+    // Collection: formData
+    match /formData/{vehicleId} {
+      allow read: if true;
+      allow create, update: if isValidId(vehicleId);
+    }
+
+    // Collection: vehicleInspectionForms
+    match /vehicleInspectionForms/{vehicleId} {
+      allow read: if true;
+      allow create, update: if isValidId(vehicleId);
+    }
+
+    // Collection: users
+    match /users/{userId} {
+      allow read: if true;
+      allow create, update, delete: if isValidId(userId);
+    }
+
+    // Collection: damageProtocols
+    match /damageProtocols/{protocolId} {
+      allow read: if true;
+      allow create, update, delete: if isValidId(protocolId);
+    }
+
+    // Collection: repairForms
+    match /repairForms/{formId} {
+      allow read: if true;
+      allow create, update, delete: if isValidId(formId);
+    }
+
+    // Collection: test
+    match /test/{docId} {
+      allow read, write: if true;
+    }
+  }
+}
